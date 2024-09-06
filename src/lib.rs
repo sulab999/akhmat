@@ -108,11 +108,11 @@ pub mod android{
         let selinux = getprop("ro.boot.selinux").value().unwrap().to_string();
         let secure = getprop("ro.secure").value().unwrap().to_string();
         let debuggable = getprop("ro.debuggable").value().unwrap().to_string();
-        if secure == "1" && debuggable == "1" {
+        if secure == String::from("1") && debuggable == String::from("1") {
             property_value = String::from("true");
             // print!("{}", property_value);
         }
-        if selinux == "permissive"{
+        if selinux == String::from("permissive"){
             property_value = String::from("true");
         }
 
@@ -176,7 +176,7 @@ pub mod android{
             "magisk",
             "busybox"
         ];
-        let mut result = Default::default();
+        let mut result = env.new_string("fail").expect("check fail");
 
         for path in paths.iter()  {
             for su in suname.iter(){
@@ -187,9 +187,7 @@ pub mod android{
                     break
                 }
             }
-            if !result.is_null(){
-                break
-            }
+
         }
 
         result.into_raw()
@@ -253,7 +251,7 @@ pub mod android{
         _class: JClass,
     ) -> jstring {
 
-        let mut result = Default::default();
+        let mut result = env.new_string("fail").expect("check fail");
         // let mac_result = mac_address::;
         // if let Ok(Some(mac)) = mac_result{
         //     info!("MAC address: {:?}", mac.to_string());
@@ -371,7 +369,7 @@ pub mod android{
         _class: JClass,
     ) -> jstring {
 
-        let mut result = env.new_string("fail").expect("moniqi file check fail");
+        let mut result = env.new_string("fail").expect("check fail");
 
 
         // info!("package name = {}", pkg_name);
@@ -390,7 +388,6 @@ pub mod android{
 
         if output.status.success()  {
             let output_str = String::from_utf8_lossy(&output.stdout);
-            // info!("{}",output_str);
             if output_str.contains("frida")  {
                 info!("Output contains 'frida'");
                 result = env.new_string("true").expect("frida check fail");
@@ -400,7 +397,6 @@ pub mod android{
             info!("Error: {}", String::from_utf8_lossy(&output.stderr));
             result = env.new_string("fail").expect("frida check fail");
         }
-        // result = env.new_string("fail").expect("frida check fail");
         result.into_raw()
     }
 }

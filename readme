@@ -1,0 +1,2 @@
+cargo ndk -t armv7-linux-androideabi -t aarch64-linux-android -o ./  build --release
+cargo ndk -t armv7-linux-androideabi -t aarch64-linux-android -o D:\tools\Sdktestdemo\app\libs  build --release
