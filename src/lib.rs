@@ -61,30 +61,30 @@ pub mod android{
                 .with_tag("akhmatLOG"),
         );
         let paths = [
-            "/data/local/",
+            // "/data/local/",
             "/data/local/bin/",
             "/data/local/xbin/",
-            "/sbin/",
+            // "/sbin/",
             "/su/bin/",
-            "/system/bin/",
+            // "/system/bin/",
             "/system/bin/.ext/",
             "/system/bin/failsafe/",
             "/system/sd/xbin/",
             "/system/usr/we-need-root/",
-            "/system/xbin/",
-            "/cache/",
+            // "/system/xbin/",
+            // "/cache/",
             "/data/data/",
-            "/dev/",
+            // "/dev/",
         ];
         let mut result = Default::default();
         // let result = env.new_string("Hello from Rust!").expect("Couldn't create Java string!");
         for path in paths.iter()  {
             if Path::new(path).exists() {
-                result = env.new_string("true").expect("path check fail");
+                result = env.new_string(path).expect("path check fail");
                 info!("path '{}' exists",path);
                 break
             } else {
-                result = env.new_string("false").unwrap()
+                result = env.new_string("fail").unwrap()
             }
         }
         // info!("Java_com_android_study_useRust_getAppSignature");
@@ -176,7 +176,7 @@ pub mod android{
             "magisk",
             "busybox"
         ];
-        let mut result = env.new_string("fail").expect("check fail");
+        let mut result = env.new_string("fail").expect("su file check fail");
 
         for path in paths.iter()  {
             for su in suname.iter(){
@@ -215,27 +215,28 @@ pub mod android{
             .stderr(Stdio::piped())
             .spawn()
             .expect("Failed to spawn su command");
-    let child2 = Command::new("mount")
-        .stdout(Stdio::piped())
-        .stderr(Stdio::piped())
-        .spawn()
-        .expect("Failed to spawn su command");
+    // let child2 = Command::new("mount")
+    //     .arg("-o remount,rw /")
+    //     .stdout(Stdio::piped())
+    //     .stderr(Stdio::piped())
+    //     .spawn()
+    //     .expect("Failed to spawn su command");
 
         // 等待子进程结束
         let output = child.wait_with_output().expect("Failed  to wait on child");
-        let output2 = child2.wait_with_output().expect("Failed  to wait on child2");
+        // let output2 = child2.wait_with_output().expect("Failed  to wait on child2");
         // 检查命令执行的结果
 
         if output.status.success()  {
             info!("Success: {}", String::from_utf8_lossy(&output.stdout));
-            result = env.new_string("true").expect("su check fail");
+            result = env.new_string("ls /data/data").expect("su check fail");
         } else {
             info!("Error: {}", String::from_utf8_lossy(&output.stderr));
             result = env.new_string("fail").expect("su check fail");
         }
     // if output2.status.success()  {
     //     info!("Success: {}", String::from_utf8_lossy(&output2.stdout));
-    //     result = env.new_string("true").expect("su check fail");
+    //     result = env.new_string("mount -o remount,rw /system").expect("su check fail");
     // } else {
     //     info!("Error: {}", String::from_utf8_lossy(&output2.stderr));
     //     result = env.new_string("fail").expect("su check fail");

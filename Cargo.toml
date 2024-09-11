@@ -25,3 +25,5 @@ crate-type = ["cdylib","staticlib"]
 [features]
 default = ["android"]
 android = ["dep:jni", "dep:android_logger"]
+#[profile.release]
+#opt-level = 'z'
