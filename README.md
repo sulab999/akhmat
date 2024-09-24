@@ -3,7 +3,7 @@
 基于rust的环境检测SDK  
 致力于跨平台安全SDK研究  
 ## 效果截图
-![webchat](https://github.com/sulab999/Taichi/blob/main/webchat.png)
+![sdkdemo](https://github.com/sulab999/akhmat/blob/master/img/sdkdemo.jpg)
 ## 主要功能
 - [√] root检测
 - [√] 模拟器检测
