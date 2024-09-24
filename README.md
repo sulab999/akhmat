@@ -2,8 +2,7 @@
 ## 简介
 基于rust的环境检测SDK  
 致力于跨平台安全SDK研究  
-## 效果截图
-![sdkdemo](https://github.com/sulab999/akhmat/blob/master/img/sdkdemo.jpg)
+
 ## 主要功能
 - [√] root检测
 - [√] 模拟器检测
@@ -11,11 +10,13 @@
 - [√] 兼容鸿蒙
 - [×] 调试检测
 - [×] 兼容ios
-
+## 效果截图
+![sdkdemo](https://github.com/sulab999/akhmat/blob/master/img/sdkdemo.jpg)
 # 适用场景
 - 环境检测
 - 风控检测
 - 移动安全测试
+
 # 环境说明
 开发语言：rust  
 编译后的so文件兼容的环境：安卓、鸿蒙
