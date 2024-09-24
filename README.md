@@ -10,7 +10,9 @@
 - [√] 兼容鸿蒙
 - [×] 调试检测
 - [×] 兼容ios
+
 ## 效果截图
+demo app见releases  
 ![sdkdemo](https://github.com/sulab999/akhmat/blob/master/img/sdkdemo.jpg)
 # 适用场景
 - 环境检测
@@ -20,6 +22,7 @@
 # 环境说明
 开发语言：rust  
 编译后的so文件兼容的环境：安卓、鸿蒙
+
 # 公众号
 水平有限目前比较low，欢迎rust开发或移动安全的朋友们来交流  
 加群：关注公众号并回复sdk
