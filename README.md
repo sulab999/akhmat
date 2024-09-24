@@ -2,6 +2,7 @@
 ## 简介
 基于rust的环境检测SDK  
 致力于跨平台安全SDK研究  
+
 ## 主要功能
 - [√] root检测
 - [√] 模拟器检测
@@ -18,7 +19,7 @@
 开发语言：rust  
 编译后的so文件兼容的环境：安卓、鸿蒙
 # 公众号
-水平有限，欢迎rust开发或移动安全的朋友们来交流  
+水平有限目前比较low，欢迎rust开发或移动安全的朋友们来交流  
 加群：关注公众号并回复sdk
 ![webchat](https://github.com/sulab999/Taichi/blob/main/webchat.png)  
 # 免责声明
