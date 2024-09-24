@@ -23,13 +23,14 @@ demo app见releases
 开发语言：rust  
 编译后的so文件兼容的环境：安卓、鸿蒙
 
-## sdk调用
-安卓
-1、新建Nativegolib类
-2、加载akhmat.so
-3、调用native方法
-调用示例
-![sdkdemo](https://github.com/sulab999/akhmat/blob/master/img/sdkdemo.jpg)
+## sdk调用开发
+安卓  
+1、新建Nativegolib类  
+2、加载akhmat.so  
+3、调用native方法  
+调用示例  
+![sdkdiaoyong](https://github.com/sulab999/akhmat/blob/master/img/sdkdiaoyong.jpg)
+
 # 公众号
 水平有限目前比较low，欢迎rust开发或移动安全的朋友们来交流  
 加群：关注公众号并回复sdk
